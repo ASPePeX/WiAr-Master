@@ -1,0 +1,12 @@
+\section{Abstract}
+
+Bei der Umrechnung von 3D-Objekten in 2D-Bilddaten gehen viele Informationen verloren. Generell ist nur noch die Projektion der Objekte auf die Kameraebene vorhanden, das heißt pixelweise Farbinformationen, also ein Bild. Findet nun eine Interaktion mit diesem Bild statt, z.B. wenn ein Benutzer ein Objekt in der 3D-Szene selektieren möchte, indem er auf dessen Darstellung im Bild klickt, müssen die angeklickten 2D-Kamerakoordinaten auf das dazugehörige Objekt zurück berechnet werden.
+
+
+Hier gibt es zwei grundverschiedene Ansätze. Einerseits kann hier rein mathematisch aufgelöst werden oder über einen zusätzlichen Renderer, der es mittels Farbiteration möglich macht, eine Relation zwischen Farbe und Objekt herzustellen. Allerdings ist es auch durchaus denkbar, Mischformen dieser Methoden zu entwickeln.
+
+
+An dieser Stelle setzt die vorliegende Bachelorarbeit an, sie soll die beiden Methoden und mögliche Mischformen vergleichen.
+
+
+Dazu werden im praktischen Teil der Arbeit, diese Methoden in die Spiele- und Simulations-Engine Fusee\footnote{http://fusee3d.org/} implementiert. Dadurch soll eine objektive Bewertung anhand von numerischen Leistungsvergleichen möglich sein.

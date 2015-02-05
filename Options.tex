@@ -1,0 +1,166 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%% Documentclass %%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[12pt,				% Font size
+			   listof=totoc,		% List of... into table of contents
+			   a4paper,				% A4 paper
+			   headinclude=false,	% Don't include header into type area calculation
+			   footinclude=false,	%
+			   headsepline,			% Separating line between header and text
+			   DIV=calc,			% Auomatically calculate DIV
+			   %BCOR=15mm			% Binding correction
+			  ]{scrartcl}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%% Packages %%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Encoding, fonts, etc...
+\usepackage[ngerman, english]{babel}			% German
+\usepackage[utf8]{inputenc}			% Files are UTF-8 encoded
+\usepackage[T1]{fontenc}			% Font encoding
+\usepackage{lmodern}				% Scalable font
+\usepackage{microtype}				% Nicer typesetting
+\usepackage{setspace}
+%\renewcommand{\ttdefault}{pcr} 	% Monospace font
+
+% Math
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{siunitx}				% Allow for german decimals, e.g. 1,344 instead of 1.344 + other stuff
+
+% Graphics, figures, tables...
+\usepackage{graphicx}				% Allow graphics
+\usepackage{xcolor}					% Allow colors
+\usepackage{booktabs}				% Nicer tables
+\usepackage{multirow} 				% Make multiple rows one big row in a table
+\usepackage{tikz} 					% For generation of vector graphics
+\usepackage{pgfplots}				% For nice plots
+\usepackage{listings}				% Source code listings
+\usepackage{changepage} 			% Margin adjustments for big figures
+\usepackage{rotating} 				% Rotate figures if needed
+\usepackage{subcaption}				% Figures with multiple images, (a), (b) ...
+\usepackage{pdfpages}				% Inserting of full pages from pdf files
+
+% Nice titlepage with more fields for scientific writeups
+%\usepackage{titlepage}
+
+% Glossary
+%\usepackage{glossaries}			% Can be used to create a nice glossary
+
+% Bibliography, citations...
+\usepackage[backend=biber,
+			bibstyle=alphabetic,
+			citestyle=alphabetic,
+			maxbibnames=4,
+			firstinits=true,
+			hyperref=true,
+			backref=true]{biblatex}
+\usepackage{url}
+\usepackage[babel,
+			german=guillemets]{csquotes}
+\usepackage[plainpages=false]{hyperref}
+\usepackage[all]{hypcap}
+
+% other
+\usepackage{ifthen}					% Allows conditional statements
+\usepackage{blindtext}				% Blindtext for testing purposes
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%% Config %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\onehalfspacing
+
+% biblatex
+\addbibresource{bibliography.bib}	% Add bibliography file
+\DefineBibliographyStrings{ngerman}	% et al. instead of u.a.
+	{andothers={et\addabbrvspace al\adddot}}
+
+% titlepage
+%\TitlePageStyle[]{KOMAScript}
+
+% TikZ
+%\usetikzlibrary{shapes}			% Shapes for Tikz
+\usetikzlibrary{plotmarks}			% Plot marks for Tikz
+\usetikzlibrary{calc}				% For general calculations
+\usetikzlibrary{intersections}		% Can calculate intersections in tikz
+\newlength\figureheight 			% Variables for figures exported with matlab2tikz
+\newlength\figurewidth
+\newcommand\figurescale{1}
+
+% pgfPlots
+\pgfplotsset{compat=newest} 
+\pgfplotsset{plot coordinates/math parser=false}
+\pgfkeys{/pgf/number format/.cd ,use comma ,set thousands separator={ }}
+
+% siunitx
+\sisetup{locale = DE}
+
+% listings
+\lstset{ %
+  backgroundcolor=\color{white},	% background color
+  basicstyle=\footnotesize\ttfamily,% code font size
+  breakatwhitespace=false,			% automatic breaklines only at whitspaces?
+  breaklines=true,					% automatic breaklines
+  captionpos=b,						% caption position
+  %commentstyle=\color{green},		% comment style
+  deletekeywords={},				% delete keywords from language
+  escapeinside={(*@}{@*)},          % LaTeX will be evaluated inside (*@ \code{} @*)
+  extendedchars=true,				% Non-ASCII characters
+  frame=single,						% frame around code
+  keepspaces=true,					% keep spaces (i.e. indentation), might need columns = flexible
+  %columns=flexible,				% set characters in columns or freely?
+  %keywordstyle=\color{blue},       % keyword style
+  language=C++,						% programming language
+  morekeywords={*,},				% add keywords
+  numbers=left,						% line-numbers (none, left, right)
+  numbersep=5pt,					% Distance line numbers <-> code
+  numberstyle=\tiny\color{gray},	% style for line-numbers
+  rulecolor=\color{black},			% frame color
+  showspaces=false,					% show spaces by using special underscores?
+  showstringspaces=false,			% underline spaces within strings only
+  showtabs=false,					% show tabs within strings adding particular underscores
+  stepnumber=1,						% step between drawn line-numbers
+  %stringstyle=\color{mauve},		% string literal style
+  tabsize=4,						% tabs translate to some amount of spaces
+  title=\lstname					% Show filename
+}
+\renewcommand{\lstlistlistingname}{Sourcecodeverzeichnis}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%% Declarations %%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Hyphenation
+\hyphenation{Haupt-kom-po-nen-ten-a-na-ly-se Vek-tor-raum Trans-po-nier-ten}
+
+% Math
+\newcommand{\var}{\mathrm{Var}}
+\newcommand{\cov}{\mathrm{Cov}}
+\newcommand{\spur}{\mathrm{Spur}}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathSymbol{\mlq}{\mathord}{operators}{``}	% \mlq produces a left quote in math mode
+\DeclareMathSymbol{\mrq}{\mathord}{operators}{`'}	% \mrq produces a right quote in math mode
+
+% Text stuff
+\newcommand{\highlight}[1]{\emph{#1}}
+
+% Sectioning levels
+\newcommand{\sect}[2]{
+	\ifthenelse{#1=1}{\chapter{#2}}{
+	\ifthenelse{#1=2}{\section{#2}}{
+	\ifthenelse{#1=3}{\subsection{#2}}
+					 {\subsubsection{#2}}}}
+}
+
+% Todo Notes
+\newcommand\todo[1]{\textcolor{red}{\textbf{#1}}}
+\newcommand\todofoot[1]{\footnote{\textcolor{red}{\textbf{#1}}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% Recalculate type area %%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\recalctypearea
