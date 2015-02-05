@@ -1,19 +1,12 @@
 \input{Options}
 
 \author{Alexander Scheurer}
-\title{Expos\'{e}}
-\subtitle{Subtitle}
+\title{Portfolio}
 \publishers{Hochschule Furtwangen\\Fakultät Digitale Medien}
-%\titlehead{titlehead}
-%\uppertitleback{uppertitleback}
-%\lowertitleback{lowertitleback}
-%\dedication{Für die 9Gag-Community, ohne die ich schon 3 Monate früher fertig geworden wäre.}
 
 \begin{document}
 
-\begin{titlepage}
-\input{Title}
-\end{titlepage}
+\include{Title}
 
 \tableofcontents
 \thispagestyle{empty}
@@ -21,21 +14,18 @@
 %\setcounter{page}{1} 
 
 \include{Abstract}
-
-
-\section{Vergleich verschiedener Auswahlverfahren im 3D-Raum}
-%\input{Einleitung_Fragestellung}
-\clearpage
-%\input{Theoretischer_Hintergrund}
-%\input{Methodik_Vorgehensweise}
-%\input{Diskussion}
-%\input{Zeitplan}
+\include{Einleitung_Fragestellung}
+\include{Theoretischer_Hintergrund}
+\include{Methodik_Vorgehensweise}
+\include{Diskussion}
+\include{Wissenschaftliche_Einordnung}
+\include{Zeitplan}
 
 
 %LITERATUR
 
 \clearpage
-\appendix
+%\appendix
 
 \printbibliography[			% Literaturverzeichnis
 	heading=bibintoc,
