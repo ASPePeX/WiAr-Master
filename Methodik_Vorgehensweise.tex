@@ -1,0 +1,21 @@
+\section{Methodik und Vorgehensweise}
+
+\subsection{Allgemein}
+In der Softwaretechnik gibt es etablierte Vorgehensweisen zur Entwicklung von Software. Da hier keine alleinstehende Software entwickelt werden soll, sondern in Abhängigkeit von anderer Software steht, müssen beide Seiten analysiert und passend verbunden werden. Die CINEMA 4D API ist objektorientiert in C++ entwickelt. Fusee hingegen ist zwar auch objektorientiert aufgebaut jedoch in C\# entwickelt. Dadurch liegt nahe, auch das Plugin objektorientiert zu entwickeln. Es muss jedoch die Brücke geschlagen werden zwischen C++ und C\#. Hier muss evaluiert werden in welcher der beiden Sprachen das Plugin entwickelt werden soll und wie es an die jeweils andere Sprache angebunden (gewrappt) werden kann.
+
+Weiterführende Literatur: \cite{Forbrig.2006}, \cite{Buschmann.c2007}, \cite{Gamma.2004}, \cite{Balzert.2001}
+
+\subsection{Werkzeuge}
+
+\subsubsection{Visual Studio}
+Visual Studio\footnote{http://www.visualstudio.com/} ist eine Entwicklungsumgebung von Microsoft die mehrere Programmiersprachen, darunter C\# und C++, umfasst. Sowohl Fusee als auch CINEMA 4D werden mit Visual Studio entwickelt.
+
+\subsubsection{ReSharper}
+ReSharper\footnote{https://www.jetbrains.com/resharper/} ist eine Erweiterung für Visual Studio von JetBrains. Es erlaubt die Analyse der Programmcode-Qualität und erzwingen eines definierten Programmierstil. Dies macht es einfacher Fehler auch schon während der Entwicklung zu erkennen und durch einen einheitlichen Programmierstil den Programmcode lesbarer und nachvollziehbarer zu machen.
+
+\subsubsection{Git}
+Bei der Softwareentwicklung ist von umfangreicheren Projekten eine Versionskontrolle unabdingbar. Sie bietet die Möglichkeit den Entwicklungsvorgang nachzuvollziehen und Fehler bei der Entwicklung, auch weit nach deren Entstehen, zu erkennen. Da das zu erweiternde Fusee Projekt ebenfalls auf Git\footnote{http://git-scm.com/} basiert soll auch in dieser Arbeit geht verwendet werden.
+\cite{Loeliger.2012}
+
+\subsubsection{SWIG}
+Mit SWIG\footnote{http://www.swig.org/} (Simplified Wrapper and Interface Generator) existiert bereits eine automatisierte Möglichkeit eine Anbindung zwischen C++ und C\# zu ermöglichen. Ohne SWIG würde allein das manuelle Verbinden den Umfang der Arbeit sprengen, es muss lediglich auf beiden Seiten die Voraussetzung für die Anbindung geschaffen werden.

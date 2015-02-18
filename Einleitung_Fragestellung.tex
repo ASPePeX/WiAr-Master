@@ -2,11 +2,18 @@
 
 \subsection{Übersicht}
 
-Aktuelle 3D-Grafik-Engines oder auch Spiele-Engines, zum Beispiel \nameref{sec:unity}, Unreal Engine oder CryEngine bieten Spiele-Entwicklern eine grafische Oberfläche (Editor). Im Vergleich zu 3D-Grafiksoftware wie \nameref{sec:c4d} oder 3D Studio MAX, bieten sie allerdings nur sehr beschränkte Möglichkeiten 3D-Objekte zu modellieren/erstellen \cite{Gregory.2014}[S.54]. Das heißt auch, dass je nach dem welche Kombination an 3D-Grafik-Engine und 3D-Grafiksoftware verwendet wird eine Schnittstelle geschaffen werden muss um die Daten (zum Beispiel Geometrie, Texturen, Materialien und Animationen) auszutauschen. \todo{OpenGEX}.
+Aktuelle 3D-Grafik-Engines oder auch Spiele-Engines, zum Beispiel \nameref{sec:unity}, Unreal Engine oder CryEngine bieten Spiele-Entwicklern eine grafische Oberfläche (Editor). Im Vergleich zu 3D-Grafiksoftware wie \nameref{sec:c4d} oder 3ds Max, bieten sie allerdings nur sehr beschränkte Möglichkeiten 3D-Objekte zu modellieren/erstellen \cite[S.54]{Gregory.2014}. Das heißt auch, dass je nach dem welche Kombination an 3D-Grafik-Engine und 3D-Grafiksoftware verwendet wird eine Schnittstelle geschaffen werden muss um die Daten (zum Beispiel Geometrie, Texturen, Materialien und Animationen) auszutauschen.
 
-Diese Editoren bieten meist auch eine direkte Schnittstelle zur Programmierung indem Programmcode mit 3D-Objekten verknüpft werden kann.
+Diese Editoren bieten meist auch eine direkte Schnittstelle zur Programmierung indem Programmcode mit 3D-Objekten verknüpft werden kann, beziehungsweise der Programmcode organisiert werden kann. Seltener existiert auch eine Oberfläche für grafische Programmierung wie zum Beispiel Blueprint von Unreal.
 
+Einen eigenen Editor für eine 3D-Grafik-Engine bereitzustellen ist ein zusätzlicher Entwicklungsaufwand, der zur Benutzung der Software nicht zwingend notwendig ist. Es gibt 3D-Grafik-Engines die keinen Editor bereitstellen (zum Beispiel \nameref{sec:fusee}), was bei der Benutzung des Engines bedeutet, dass ein Programmierer im Programmcode die 3D-Objekte einer Szene setzen muss.
 
 \subsection{Aufgabe/Fragestellung}
 
-In diesem 
+Die Idee dieser Arbeit ist, eine 3D-Grafiksoftware als Editor für eine 3D-Grafik-Engine prototypisch anzubinden und in dem Umfang zu erweitern, dass auch eine Schnittstelle zum Programmcode existiert. Konkret soll hier \nameref{sec:c4d} an \nameref{sec:fusee} angebunden werden. Es soll einerseits möglich sein Programmcode an 3D-Objekte zu binden, als auch die grafische Programmieroberfläche von CINEMA 4D, XPresso, zu verwenden, um daraus lauffähigen Programmcode für Fusee zu erzeugen. Dies soll über ein Plugin für CINEMA 4D geschehen, dass die Kommunikation beider Programme bereitstellt und die Übersetzung zwischen verschiedenen Datentypen übernimmt.
+
+Hier soll geprüft werden ob die Datenstruktur zur Kommunikation an den \nameref{sec:OpenGEX} Spezifikationen orientieren lässt um eine größtmögliche Kompatibilität auch mit anderer 3D-Grafiksoftware und anderen 3D-Grafik-Engines zu ermöglichen.
+
+Ziel ist es, einen Editor zu schaffen, der alle Fähigkeiten einer 3D-Grafiksoftware besitzt und gleichzeitig direkt an eine 3D-Grafik-Engine angebunden ist. Es soll auch gezeigt werden, ob es praktikabel ist, einen nicht speziell für die 3D-Grafik-Engine entwickelten Editor, in Form einer 3D-Grafiksoftware, zu nutzen.
+
+Als Vorbild für die Umsetzung soll die Funktionalität des \nameref{sec:unity} Editors dienen.
